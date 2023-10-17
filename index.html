@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ball_exercise</title>
 </head>
 <body>
-    <div id = "ball" style = 
-   "background-color: green;
+    <div id = "ball" style="
+    background-color: green;
     top:0;
     left:100;
     border-radius: 50%;
@@ -16,33 +15,24 @@
     z-index: 5;
     height: 100px;
     width: 100px;"></div>
-     <script>
-        var velocity = 60;
+    <script>
+        var velocity = 5;
         var position = 0;
-        var target = 400;
+        var moveleft = 1;
         var ball = document.getElementById("ball");
-        
-        function move(){
-              if(position<target){
-              position = position+velocity;
-              ball.style.left=position+'px'
-              }
 
-              else if(target>0)
-              {
-                target = target-velocity;
-               ball.style.left=target+'px'
-              }
-              else{
-                target=400;
-                position=0;
-              }
-
+        function moveball(){
+             position+= moveleft*velocity;
+             if(position>=95 || position<=0){
+                moveleft*=-1;
+             }
+             ball.style.left=position+'%';
+             ball.style.top=position+'%';
         }
-               
-    setInterval(move,100)
 
-        </script>
+        
+  
+       setInterval(moveball,100); 
+    </script>
 </body>
 </html>
-
